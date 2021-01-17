@@ -46,7 +46,7 @@ spec:
 $ kubectl run nginx --image=nginx
 ```
 
-### Delete the pod nginx
+#### Delete the pod nginx
 ```
 $ kubectl apply -f <(echo "
 apiVersion: poddelete.example.com/v1alpha1
