@@ -40,7 +40,7 @@ spec:
   podName: <pod-name>
 ```
 
-### Example
+## Example
 #### Create sample nginx pod
 ```
 $ kubectl run nginx --image=nginx
