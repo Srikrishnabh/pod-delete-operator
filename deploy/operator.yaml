@@ -16,7 +16,7 @@ spec:
       containers:
         - name: pod-delete-operator
           # Replace this with the built image name
-          image: REPLACE_IMAGE
+          image: srikrishnabh/pod-delete-operator:latest
           command:
           - pod-delete-operator
           imagePullPolicy: Always

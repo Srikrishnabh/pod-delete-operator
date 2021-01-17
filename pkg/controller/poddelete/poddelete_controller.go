@@ -7,7 +7,6 @@ import (
 	poddeletev1alpha1 "github.com/Srikrishnabh/pod-delete-operator/pkg/apis/poddelete/v1alpha1"
 	corev1 "k8s.io/api/core/v1"
 	"k8s.io/apimachinery/pkg/api/errors"
-	//metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/runtime"
 	"sigs.k8s.io/controller-runtime/pkg/client"
 	"sigs.k8s.io/controller-runtime/pkg/controller"
@@ -109,8 +108,7 @@ func (r *ReconcilePodDelete) Reconcile(request reconcile.Request) (reconcile.Res
 		return reconcile.Result{}, err
 	}
 
-	reqLogger.Info(fmt.Sprintf("reconcile for delete pod %s:%s success", instance.Spec.Namespace,
-																						instance.Spec.PodName))
+	reqLogger.Info(fmt.Sprintf("reconcile for delete pod %s:%s success", instance.Spec.Namespace,																						instance.Spec.PodName))
 	return reconcile.Result{}, nil
 }
 
@@ -124,6 +122,7 @@ func (r *ReconcilePodDelete) deletePod(namespace, podName string) error {
 
 	if err != nil {
 		if errors.IsNotFound(err) { // ignore if pod not found
+			logf.Log.Error(err, "error")
 			logf.Log.Info(fmt.Sprintf("pod %s:%s not found", namespace, podName))
 			return nil
 		}

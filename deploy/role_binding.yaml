@@ -1,11 +1,12 @@
-kind: RoleBinding
+kind: ClusterRoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: pod-delete-operator
 subjects:
 - kind: ServiceAccount
   name: pod-delete-operator
+  namespace: default
 roleRef:
-  kind: Role
+  kind: ClusterRole
   name: pod-delete-operator
   apiGroup: rbac.authorization.k8s.io
